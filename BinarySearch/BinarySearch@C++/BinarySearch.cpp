@@ -1,13 +1,15 @@
 #include<iostream>
 using namespace std;
 
-int binarySearch(int size, int array[], int num) {
 
+template <class T>
+void binarySearch(T *array, int arr_size, T num)
+{
     // Binary Search
     int front, last, middle, flag = 0;
 
     front=0;
-    last = size - 1; // size-1 is index of last element
+    last = arr_size - 1; // size-1 is index of last element
 
     while(front <= last)
     {
@@ -24,32 +26,30 @@ int binarySearch(int size, int array[], int num) {
     }
 
     if(flag == 0)
-        return -1;
+        cout << "The number is not present in the array.";
     else
-        return (middle+1);
+        cout << "The number is present at position " << (middle+1);
+
 
 }
+
 int main()
 {
-    int size,i,num,flag=0,num_pos;
+    //int array
+    int arr_size,i,num,flag=0,num_pos;
     cout<<"Enter the no. of elements in array: ";
-    cin >> size;
+    cin >> arr_size;
 
-    int arr[size];
-    cout << "Enter the elements of the array in inc. order : ";
+    int arr[arr_size];
+    cout << "Enter the elements of the array in increasing order : ";
 
-    for(i=0;i<size;i++)
+    for(i=0;i<arr_size;i++)
         cin >> arr[i];
 
     cout << "Enter the no. u want to search for:";
     cin >> num;
 
-    num_pos = binarySearch(size, arr, num);
-
-    if(num_pos == -1)
-        cout << "The number is not present in the array.";
-    else
-        cout << "The number is present at position " << num_pos;
+    binarySearch(arr, arr_size, num);
 
     return 0;
 }
