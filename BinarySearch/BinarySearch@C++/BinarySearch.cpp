@@ -36,7 +36,7 @@ void binarySearch(T *array, int arr_size, T num)
 int main()
 {
     //int array
-    int arr_size,i,num,flag=0,num_pos;
+    int arr_size,i,num;
     cout<<"Enter the no. of elements in array: ";
     cin >> arr_size;
 
